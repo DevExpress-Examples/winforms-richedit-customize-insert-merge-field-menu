@@ -1,3 +1,11 @@
+<!-- default file list -->
+*Files to look at*:
+
+* [CustomInsertMergeFieldItem.cs](./CS/CustomInsertMergeFieldItem.cs) (VB: [CustomInsertMergeFieldItem.vb](./VB/CustomInsertMergeFieldItem.vb))
+* [DataBindingController.cs](./CS/DataBindingController.cs) (VB: [DataBindingController.vb](./VB/DataBindingController.vb))
+* [Form1.cs](./CS/Form1.cs) (VB: [Form1.vb](./VB/Form1.vb))
+* [Program.cs](./CS/Program.cs) (VB: [Program.vb](./VB/Program.vb))
+<!-- default file list end -->
 # How to customize the "Insert Merge Field" menu
 
 
