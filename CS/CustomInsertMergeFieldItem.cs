@@ -152,7 +152,7 @@ namespace RichEditCustomInsertMergeFieldMenu {
         }
 
         protected override void OnClick(BarItemLink link) {
-            control.Document.Fields.Add(control.Document.CaretPosition, string.Format(" MERGEFIELD {0} ", this.fieldName));
+            control.Document.Fields.Create(control.Document.CaretPosition, string.Format(" MERGEFIELD {0} ", this.fieldName));
         }
     }
 }

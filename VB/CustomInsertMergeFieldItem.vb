@@ -183,7 +183,7 @@ Namespace RichEditCustomInsertMergeFieldMenu
 		End Sub
 
 		Protected Overrides Sub OnClick(ByVal link As BarItemLink)
-			control.Document.Fields.Add(control.Document.CaretPosition, String.Format(" MERGEFIELD {0} ", Me.fieldName))
+			control.Document.Fields.Create(control.Document.CaretPosition, String.Format(" MERGEFIELD {0} ", Me.fieldName))
 		End Sub
 	End Class
 End Namespace
