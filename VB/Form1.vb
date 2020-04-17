@@ -1,15 +1,14 @@
-Imports Microsoft.VisualBasic
-Imports System
+﻿Imports System
 Imports System.Collections.Generic
 Imports System.ComponentModel
 Imports System.Windows.Forms
 Imports System.Data.OleDb
 Imports System.Data
-Imports RichEditCustomInsertMergeFieldMenu.Properties
 
 Namespace RichEditCustomInsertMergeFieldMenu
 	Partial Public Class Form1
 		Inherits Form
+
 		Public Sub New()
 			InitializeComponent()
 

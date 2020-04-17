@@ -1,5 +1,4 @@
-﻿Imports Microsoft.VisualBasic
-Imports System
+﻿Imports System
 Imports System.Collections.Generic
 Imports System.ComponentModel
 Imports System.Windows.Forms
@@ -33,7 +32,7 @@ Namespace RichEditCustomInsertMergeFieldMenu
 
 		Public ReadOnly Property ItemsCount() As Integer
 			Get
-				Return If((bindingManager IsNot Nothing), bindingManager.Count, 0)
+				Return If(bindingManager IsNot Nothing, bindingManager.Count, 0)
 			End Get
 		End Property
 
@@ -75,12 +74,12 @@ Namespace RichEditCustomInsertMergeFieldMenu
 				End If
 
 				If TypeOf bindingManager Is CurrencyManager Then
-					Return prop.GetValue((CType(bindingManager, CurrencyManager)).List(rowIndex))
+					Return prop.GetValue(CType(bindingManager, CurrencyManager).List(rowIndex))
 				Else
 					If rowIndex <> 0 Then
 						Throw New ArgumentOutOfRangeException("rowIndex")
 					End If
-					Return prop.GetValue((CType(bindingManager, PropertyManager)).Current)
+					Return prop.GetValue(CType(bindingManager, PropertyManager).Current)
 				End If
 			End If
 

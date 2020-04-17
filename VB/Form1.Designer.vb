@@ -1,6 +1,4 @@
-Imports Microsoft.VisualBasic
-Imports System
-Namespace RichEditCustomInsertMergeFieldMenu
+﻿Namespace RichEditCustomInsertMergeFieldMenu
 	Partial Public Class Form1
 		''' <summary>
 		''' Required designer variable.

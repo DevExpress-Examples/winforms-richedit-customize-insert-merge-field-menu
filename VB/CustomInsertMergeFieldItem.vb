@@ -1,5 +1,4 @@
-﻿Imports Microsoft.VisualBasic
-Imports System.Collections.Generic
+﻿Imports System.Collections.Generic
 Imports System.ComponentModel
 Imports System.Drawing
 Imports System.Reflection
@@ -13,6 +12,7 @@ Imports DevExpress.XtraRichEdit.UI
 Namespace RichEditCustomInsertMergeFieldMenu
 	Public Class CustomInsertMergeFieldItem
 		Inherits BarButtonItem
+
 		Private popupMenu As PopupMenu
 
 		Public Sub New()
@@ -24,23 +24,27 @@ Namespace RichEditCustomInsertMergeFieldMenu
 			InitializeItem()
 		End Sub
 
-		Public Sub New(ByVal caption As String)
-			MyBase.New(Nothing, caption)
+'INSTANT VB NOTE: The variable caption was renamed since Visual Basic does not handle local variables named the same as class members well:
+		Public Sub New(ByVal caption_Conflict As String)
+			MyBase.New(Nothing, caption_Conflict)
 			InitializeItem()
 		End Sub
 
-		Public Sub New(ByVal manager As BarManager, ByVal caption As String)
-			MyBase.New(manager, caption)
+'INSTANT VB NOTE: The variable caption was renamed since Visual Basic does not handle local variables named the same as class members well:
+		Public Sub New(ByVal manager As BarManager, ByVal caption_Conflict As String)
+			MyBase.New(manager, caption_Conflict)
 			InitializeItem()
 		End Sub
 
 		Private Sub InitializeItem()
 			Me.popupMenu = New PopupMenu()
-			AddHandler Me.popupMenu.BeforePopup, AddressOf OnBeforePopup
+			AddHandler popupMenu.BeforePopup, AddressOf Me.OnBeforePopup
 		End Sub
 
 		#Region "Properties"
-		<Browsable(False), EditorBrowsable(EditorBrowsableState.Never), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)> _
+		<Browsable(False)>
+		<EditorBrowsable(EditorBrowsableState.Never)>
+		<DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)>
 		Public Overrides Property ButtonStyle() As BarButtonStyle
 			Get
 				Return BarButtonStyle.DropDown
@@ -48,7 +52,9 @@ Namespace RichEditCustomInsertMergeFieldMenu
 			Set(ByVal value As BarButtonStyle)
 			End Set
 		End Property
-		<Browsable(False), EditorBrowsable(EditorBrowsableState.Never), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)> _
+		<Browsable(False)>
+		<EditorBrowsable(EditorBrowsableState.Never)>
+		<DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)>
 		Public Overrides Property DropDownControl() As PopupControl
 			Get
 				Return popupMenu
@@ -56,7 +62,9 @@ Namespace RichEditCustomInsertMergeFieldMenu
 			Set(ByVal value As PopupControl)
 			End Set
 		End Property
-		<Browsable(False), EditorBrowsable(EditorBrowsableState.Never), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)> _
+		<Browsable(False)>
+		<EditorBrowsable(EditorBrowsableState.Never)>
+		<DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)>
 		Public Overrides Property Caption() As String
 			Get
 				Return XtraRichEditLocalizer.Active.GetLocalizedString(XtraRichEditStringId.MenuCmd_InsertMergeField)
@@ -64,7 +72,9 @@ Namespace RichEditCustomInsertMergeFieldMenu
 			Set(ByVal value As String)
 			End Set
 		End Property
-		<Browsable(False), EditorBrowsable(EditorBrowsableState.Never), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)> _
+		<Browsable(False)>
+		<EditorBrowsable(EditorBrowsableState.Never)>
+		<DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)>
 		Public Overrides Property Glyph() As Image
 			Get
 				Return Image.FromStream(System.Reflection.Assembly.GetExecutingAssembly().GetManifestResourceStream("Images.InsertDataField_16x16.png"))
@@ -72,7 +82,9 @@ Namespace RichEditCustomInsertMergeFieldMenu
 			Set(ByVal value As Image)
 			End Set
 		End Property
-		<Browsable(False), EditorBrowsable(EditorBrowsableState.Never), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)> _
+		<Browsable(False)>
+		<EditorBrowsable(EditorBrowsableState.Never)>
+		<DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)>
 		Public Overrides Property LargeGlyph() As Image
 			Get
 				Return Image.FromStream(System.Reflection.Assembly.GetExecutingAssembly().GetManifestResourceStream("Images.InsertDataField_32x32.png"))
@@ -80,13 +92,14 @@ Namespace RichEditCustomInsertMergeFieldMenu
 			Set(ByVal value As Image)
 			End Set
 		End Property
-		Private richEditControl_Renamed As RichEditControl
+'INSTANT VB NOTE: The field richEditControl was renamed since Visual Basic does not allow fields to have the same name as other class members:
+		Private richEditControl_Conflict As RichEditControl
 		Public Property RichEditControl() As RichEditControl
 			Get
-				Return richEditControl_Renamed
+				Return richEditControl_Conflict
 			End Get
 			Set(ByVal value As RichEditControl)
-				richEditControl_Renamed = value
+				richEditControl_Conflict = value
 			End Set
 		End Property
 		#End Region
@@ -109,7 +122,7 @@ Namespace RichEditCustomInsertMergeFieldMenu
 					Dim groupName As String = fullColumnName.Substring(0, dotIndex)
 					Dim columnName As String = fullColumnName.Substring(groupName.Length + 1)
 
-					If (Not subItems.ContainsKey(groupName)) Then
+					If Not subItems.ContainsKey(groupName) Then
 						Dim subItem As New BarSubItem()
 						subItem.Caption = groupName
 						subItems.Add(groupName, subItem)
@@ -157,7 +170,7 @@ Namespace RichEditCustomInsertMergeFieldMenu
 		End Sub
 
 		#Region "IDisposable implementation"
-		Protected Overrides Overloads Sub Dispose(ByVal disposing As Boolean)
+		Protected Overrides Sub Dispose(ByVal disposing As Boolean)
 			MyBase.Dispose(disposing)
 			If disposing Then
 				If popupMenu IsNot Nothing Then
@@ -172,6 +185,7 @@ Namespace RichEditCustomInsertMergeFieldMenu
 
 	Public Class CustomInsertMergeFieldMenuItem
 		Inherits InsertMergeFieldMenuItem
+
 		Private control As RichEditControl
 		Private fieldName As String
 
