@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Drawing;
 using System.Reflection;
+using System.Windows.Forms;
 using DevExpress.XtraBars;
 using DevExpress.XtraRichEdit;
 using DevExpress.XtraRichEdit.API.Native;
