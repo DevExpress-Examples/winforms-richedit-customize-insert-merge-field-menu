@@ -116,7 +116,7 @@ namespace RichEditCustomInsertMergeFieldMenu {
             RefreshPopupMenu();
         }
 
-        protected override void OnClick(BarItemLink link) {
+        protected override void OnClick(BarItemLink link, MouseEventArgs mouseEventArgs = null) {
             if (RichEditControl != null)
                 RichEditControl.CreateCommand(RichEditCommandId.ShowInsertMergeFieldForm).Execute();
         }
